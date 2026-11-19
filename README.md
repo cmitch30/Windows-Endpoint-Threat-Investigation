@@ -161,23 +161,21 @@ Four automated tests verify the project's Sigma matching logic.
 
 These tests validate the project's local detection logic against the supplied test cases; they do not establish compatibility with every SIEM backend.
 
+
 ## Evidence Screenshots
 
 ### 1. Endpoint Analyzer Results
-
 ![Endpoint Analyzer Results](screenshots/01-endpoint-analyzer.png)
 
 ### 2. Correlated Endpoint Timeline
-
 ![Correlated Endpoint Timeline](screenshots/02-endpoint-timeline.png)
 
 ### 3. MITRE ATT&CK Mapping
-
 ![MITRE ATT&CK Mapping](screenshots/03-mitre-attack-mapping.png)
 
 ### 4. Sigma Detection Tests
-
 ![Sigma Detection Tests](screenshots/04-sigma-detection-tests.png)
+
 
 ## Repository Structure
 
