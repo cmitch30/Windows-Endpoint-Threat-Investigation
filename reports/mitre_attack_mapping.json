@@ -1,0 +1,49 @@
+
+{
+  "investigation": "Windows Endpoint Threat Investigation",
+  "hostname": "WIN10-LAB",
+  "data_source": "Synthetic Sysmon Event Logs",
+  "framework": "MITRE ATT&CK Enterprise",
+  "techniques": [
+    {
+      "technique_id": "T1059.001",
+      "technique_name": "PowerShell",
+      "tactic": "Execution",
+      "observed_behavior": "PowerShell launched with an EncodedCommand argument.",
+      "evidence": {
+        "event_id": 1,
+        "timestamp": "2026-11-18 14:02:15",
+        "process": "powershell.exe",
+        "command_line": "powershell.exe -NoProfile -EncodedCommand SQBFAFgA"
+      },
+      "assessment": "Observed PowerShell execution with an encoded-command argument. Intent is undetermined."
+    },
+    {
+      "technique_id": "T1059.003",
+      "technique_name": "Windows Command Shell",
+      "tactic": "Execution",
+      "observed_behavior": "PowerShell spawned cmd.exe to execute whoami.",
+      "evidence": {
+        "event_id": 1,
+        "timestamp": "2026-11-18 14:03:10",
+        "process": "cmd.exe",
+        "command_line": "cmd.exe /c whoami"
+      },
+      "assessment": "Observed command-shell execution. The activity may be administrative or investigative and is not independently proof of compromise."
+    }
+  ],
+  "additional_observations": [
+    {
+      "behavior": "PowerShell network connection",
+      "event_id": 3,
+      "destination": "203.0.113.50:443",
+      "assessment": "Network activity is correlated to the PowerShell process. No command-and-control technique is confirmed."
+    },
+    {
+      "behavior": "Encoded PowerShell command",
+      "possible_technique": "T1027",
+      "assessment": "An encoded-command argument may indicate obfuscation, but the available evidence does not establish malicious concealment."
+    }
+  ],
+  "limitations": "All events are synthetic. Technique mappings describe observed behaviors rather than confirmed malicious activity."
+}
